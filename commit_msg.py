@@ -18,30 +18,36 @@ if __name__ == "__main__":
 	#
 	# Parse the msg
 	flag_regex = re.compile(".*(-[mM]).*")
-	found = flag_regex.search(msg)
+	flag_found = flag_regex.search(msg)
 	flag = None
-	if found:
-		flag = re.sub('-', '', found.group(1))
+	if flag_found:
+		flag = re.sub('-', '', flag_found.group(1))
 	try:
 		#
 		# Parse semantic version
-		with open("__version__", "w") as ff:
+		semver_regex = re.compile("(\d+\.\d+\.\d+)")
+		with open("__version__", "r") as ff:
 			version = ff.read().strip()
-		symver = [int(j) for j in version.split('.')]
+			semver_match = semver_regex.search(version)
+		if semver_match:
+			semver = [int(j) for j in version.split('.')]
+		else:
+			semver = [0, 0, 0]
+		#
 	except Exception:
-		symver = [0, 0, 0]
+		semver = [0, 0, 0]
 	#
 	# Condition on flag
 	if flag == 'M':
-		symver[0] += 1
+		semver[0] += 1
 	elif flag == 'm':
-		symver[1] += 1
+		semver[1] += 1
 	else:
-		symver[2] += 1
+		semver[2] += 1
 	#
 	# Concat
-	symver = [str(i) for i in symver]
-	version = '.'.join(symver)
+	semver = [str(i) for i in semver]
+	version = '.'.join(semver)
 	#
 	# Write semantic version
 	with open("__version__","w") as f:
