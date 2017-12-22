@@ -13,35 +13,36 @@ if __name__ == "__main__":
 	msg_path = args_dict['msg-path']
 	#
 	# Grab message
-	with open(msg_path, 'r') as f:
-		msg = f.read().strip()
+# 	with open(msg_path, 'r') as f:
+# 		msg = f.read().strip()
 	#
 	# Parse the msg
-	flag_regex = re.compile(".*(-[mM]).*")
-	found = flag_regex.search(msg)
-	flag = None
-	if found:
-		flag = re.sub('-', '', found.group(1))
-	if isfile("__version__"):
-		#
-		# Write message
-		with open("__version__", "r") as f:
-			version = f.read().strip()
-			symver = [int(j) for j in version.split('.')]
-	else:
-		symver = [0, 0, 0]
-	#
-	# Condition on flag
-	if flag == 'M':
-		symver[0] += 1
-	elif flag == 'm':
-		symver[1] += 1
-	else:
-		symver[2] += 1
-	#
-	# Concat
-	symver = [str(i) for i in symver]
-	version = '.'.join(symver)
-	#
-	with open("__version__","w") as f:
-		f.write(version)
+# 	flag_regex = re.compile(".*(-[mM]).*")
+# 	found = flag_regex.search(msg)
+# 	flag = None
+# 	if found:
+# 		flag = re.sub('-', '', found.group(1))
+# 	try:
+# 		#
+# 		# Parse semantic version
+# 		with open("__version__", "w") as ff:
+# 			version = ff.read().strip()
+# 		symver = [int(j) for j in version.split('.')]
+# 	except Exception:
+# 		symver = [0, 0, 0]
+# 	#
+# 	# Condition on flag
+# 	if flag == 'M':
+# 		symver[0] += 1
+# 	elif flag == 'm':
+# 		symver[1] += 1
+# 	else:
+# 		symver[2] += 1
+# 	#
+# 	# Concat
+# 	symver = [str(i) for i in symver]
+# 	version = '.'.join(symver)
+# 	#
+# 	# Write semantic version
+# 	with open("__version__","w") as f:
+# 		f.write(version)
