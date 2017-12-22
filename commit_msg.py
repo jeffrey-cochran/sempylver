@@ -4,7 +4,7 @@ import re
 
 if __name__ == "__main__":
 	#
-    # Define an argument parser for commit-msg.py
+	# Define an argument parser for commit-msg.py
 	parser = argparse.ArgumentParser(description='Check commit message for flags.', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 	parser.add_argument('msg-path', metavar='mmm', type=str, help='the path to the commit message')
 	#
