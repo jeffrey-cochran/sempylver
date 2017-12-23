@@ -13,5 +13,8 @@ setup(
             'sempylver = sempylver.__main__:main'
         ]
     },
-    include_package_data=True
+    include_package_data=True,
+    install_requires=[
+        'pyyaml',
+    ],
 )
