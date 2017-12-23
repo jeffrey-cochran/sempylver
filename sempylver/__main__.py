@@ -1,5 +1,5 @@
 import argparse
-import configparser
+from sempylver.utils import config_parser
 
 
 def main():
@@ -11,7 +11,7 @@ def main():
     # Get args as dict
     args_dict = vars(parser.parse_args())
     msg_path = args_dict['msg-path']
-    z = configparser()
+    z = config_parser()
 
 if __name__ == "__main__":
     main()
