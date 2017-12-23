@@ -9,7 +9,7 @@ setup(name='sempylver',
       packages=find_packages(),
       entry_points={
         'console_scripts': [
-            'sempylver = sempylver.main:cli'
+            'sempylver = sempylver.__main__:cli'
         ]
       }
 )
