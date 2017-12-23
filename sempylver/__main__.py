@@ -1,7 +1,5 @@
 import argparse
-from os.path import isfile
-import re
-
+import configparser
 
 
 def main():
@@ -13,7 +11,7 @@ def main():
     # Get args as dict
     args_dict = vars(parser.parse_args())
     msg_path = args_dict['msg-path']
-    print(msg_path)
+    z = configparser()
 
 if __name__ == "__main__":
     main()
