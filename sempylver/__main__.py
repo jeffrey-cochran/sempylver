@@ -3,6 +3,7 @@ from os.path import isfile
 import re
 
 
+
 def main():
     #
     # Define an argument parser for commit-msg.py
