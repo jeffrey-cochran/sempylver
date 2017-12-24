@@ -9,7 +9,7 @@ def main():
     subparsers = parser.add_subparsers(
         help="""Possible actions:
 - config""",
-        dest='command'
+        dest='action'
     )
     #
     # Config parser
