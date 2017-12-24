@@ -20,10 +20,13 @@ def main():
     args_dict = vars(parser.parse_args())
     #
     # Determine action
-    action = args_dict.pop('action')
-    #
-    # Perform action
-    action(**args_dict)
+    action_str = args_dict.pop('action')
+    if action_str is not None:
+        #
+        action = actions[action_str]
+        #
+        # Perform action
+        action(**args_dict)
 
 
 if __name__ == "__main__":
