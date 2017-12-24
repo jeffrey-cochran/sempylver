@@ -2,9 +2,10 @@ from sempylver.utils import config_parser
 
 
 def set_config(**kwargs):
-    print(kwargs)
-#     z = config_parser()
-#     z.set(config_name, value).write()
+    z = config_parser()
+    for key, value in kwargs.items():
+        z.set(key, value)
+    z.write()
 
 actions = {
     'config': set_config
