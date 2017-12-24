@@ -4,6 +4,6 @@ if [ ! -f __version__ ]; then
   touch __version__
 fi
 
-python commit_msg.py "$1"
+python .git/hooks/commit_msg.py "$1"
 
 git add __version__
