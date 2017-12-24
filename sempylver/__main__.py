@@ -14,7 +14,7 @@ def main():
     #
     # Config parser
     parser_config = subparsers.add_parser('config', help='Set values in the global config file')
-    parser_config.add_argument('-d', metavar='d', type=str, help='the config option to set')
+    parser_config.add_argument('--working-directory', metavar='d', type=str, help='the config option to set')
     #
     # Get args
     args_dict = vars(parser.parse_args())
