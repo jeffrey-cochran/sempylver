@@ -54,3 +54,6 @@ if __name__ == "__main__":
     # Write semantic version
     with open("__version__", "w") as f:
         f.write(version)
+
+else:
+    print("HELLO")
