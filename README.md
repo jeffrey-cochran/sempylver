@@ -1,2 +1,2 @@
 # sempylver
-Simple semantic versioning in Python. A CLI tool. Testingasdfasdf
+Simple semantic versioning in Python. A CLI tool. Testingasdfasdfasdf
