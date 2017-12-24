@@ -29,4 +29,4 @@ class config_parser(object):
 
     def write(self):
         with open(self.config_file, 'w') as cf:
-            cf.write(yaml.dump(self.config_opts))
+            yaml.dump(self.config_opts, cf, default_flow_style=False)
