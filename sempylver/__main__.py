@@ -16,6 +16,10 @@ def main():
     parser_config = subparsers.add_parser('config', help='Set values in the global config file')
     parser_config.add_argument('--working-directory', metavar='d', type=str, help='the config option to set')
     #
+    # Track parser
+    parser_config = subparsers.add_parser('track', help='Track a Python git repository')
+    parser_config.add_argument('project-directory', metavar='p', type=str, help='the repository to track')
+    #
     # Get args
     args_dict = vars(parser.parse_args())
     #
