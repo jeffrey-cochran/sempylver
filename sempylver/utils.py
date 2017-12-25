@@ -1,6 +1,6 @@
-from shutil import copyfileobj
-from os.path import join
 import yaml
+from shutil import copyfileobj
+from os.path import join, basename
 from sempylver.constants import global_config, this_dir
 
 
@@ -49,5 +49,23 @@ def write_commit_msg_hook(git_hook_directory):
     #
     copy_with_newlines(this_dir, git_hook_directory, 'commit-msg', newline='\n')
     copy_with_newlines(this_dir, git_hook_directory, 'commit_msg.py')
+    #
+    return
+
+
+def write_setup(project_directory):
+    #
+    project_name = basename(project_directory)
+    #
+    with open(join(this_dir, 'setup'), 'r') as setup_file:
+        setup_template = setup_file.read()
+        cp = config_parser()
+        config_opts = cp.config_opts
+        setup_template.replace('%name%', project_name)
+        setup_template.replace('%author%', config_opts['author'])
+        setup_template.replace('%email%', config_opts['email'])
+    #
+    with open(join(project_directory, 'setup.py'), 'w') as setup_py_file:
+        setup_py_file.write(setup_template)
     #
     return

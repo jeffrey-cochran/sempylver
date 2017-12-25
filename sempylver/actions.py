@@ -1,6 +1,6 @@
 import subprocess
 from os.path import isdir, join
-from sempylver.utils import config_parser, write_commit_msg_hook
+from sempylver.utils import config_parser, write_commit_msg_hook, write_setup
 
 
 def set_config(**kwargs):
@@ -31,7 +31,8 @@ def track_project(project_directory=None, s=False):
     write_commit_msg_hook(git_hook_directory)
     #
     # Create a setup file
-    
+    if s:
+        write_setup(project_directory)
     #
     return
 
