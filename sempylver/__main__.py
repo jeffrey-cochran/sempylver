@@ -14,11 +14,14 @@ def main():
     #
     # Config parser
     parser_config = subparsers.add_parser('config', help='Set values in the global config file')
-    parser_config.add_argument('--working-directory', metavar='d', type=str, help='the config option to set')
+    parser_config.add_argument('--working-directory', metavar='d', type=str, help='specify the root git directory that contains your repos')
+    parser_config.add_argument('--author', metavar='a', type=str, help='specify the author to use in setup')
+    parser_config.add_argument('--email', metavar='e', type=str, help='specify the email to use in setup')
     #
     # Track parser
     parser_config = subparsers.add_parser('track', help='Track a Python git repository')
     parser_config.add_argument('project_directory', metavar='p', type=str, help='the repository to track')
+    parser_config.add_argument('-s', metavar='s', action='store_true', help='create a setup file')
     #
     # Get args
     args_dict = vars(parser.parse_args())

@@ -10,7 +10,7 @@ def set_config(**kwargs):
     z.write()
 
 
-def track_project(project_directory=None):
+def track_project(project_directory=None, s=False):
     #
     z = config_parser()
     try:
@@ -29,6 +29,9 @@ def track_project(project_directory=None):
         raise Exception('The target directory, %s, does not appear to be a git repository.' % project_directory)
     #
     write_commit_msg_hook(git_hook_directory)
+    #
+    # Create a setup file
+    
     #
     return
 

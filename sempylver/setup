@@ -1,0 +1,16 @@
+from distutils.core import setup
+from setuptools import find_packages
+
+
+with open('__version__', 'rb') as f:
+    version = f.read().strip()
+
+
+setup(
+    name=%name%,
+    version=version,
+    description='%name%',
+    author='%author%',
+    author_email='%email%',
+    packages=find_packages(),
+)
