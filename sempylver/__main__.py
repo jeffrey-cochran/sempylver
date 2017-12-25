@@ -21,7 +21,7 @@ def main():
     # Track parser
     parser_config = subparsers.add_parser('track', help='Track a Python git repository')
     parser_config.add_argument('project_directory', metavar='p', type=str, help='the repository to track')
-    parser_config.add_argument('-s', metavar='s', action='store_true', help='create a setup file')
+    parser_config.add_argument('-s', action='store_true', help='create a setup file')
     #
     # Get args
     args_dict = vars(parser.parse_args())
