@@ -40,8 +40,8 @@ class config_parser(object):
 
 
 def copy_with_newlines(orig_dir, tgt_dir, file_name, newline='\r\n'):
-    with open(join(orig_dir, file_name), 'rb') as orig_file:
-        with open(join(tgt_dir, file_name), 'wb', newline=newline) as tgt_file:
+    with open(join(orig_dir, file_name), 'r') as orig_file:
+        with open(join(tgt_dir, file_name), 'w', newline=newline) as tgt_file:
             copyfileobj(orig_file, tgt_file)
 
 
