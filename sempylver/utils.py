@@ -1,4 +1,4 @@
-from shutil import copy2
+from shutil import copyfileobj
 from os.path import join
 import yaml
 from sempylver.constants import global_config, this_dir
@@ -39,9 +39,15 @@ class config_parser(object):
         return
 
 
+def copy_with_newlines(orig_dir, tgt_dir, file_name):
+    with open(join(orig_dir, file_name), 'rb') as orig_file:
+        with open(join(tgt_dir, file_name), 'wb') as tgt_file:
+            copyfileobj(orig_file, tgt_file)
+
+
 def write_commit_msg_hook(git_hook_directory):
     #
-    copy2(join(this_dir, 'commit-msg'), git_hook_directory)
-    copy2(join(this_dir, 'commit_msg.py'), git_hook_directory)
+    copy_with_newlines(this_dir, git_hook_directory, 'commit-msg')
+    copy_with_newlines(this_dir, git_hook_directory, 'commit_msg.py')
     #
     return
