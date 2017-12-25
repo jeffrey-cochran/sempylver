@@ -39,15 +39,15 @@ class config_parser(object):
         return
 
 
-def copy_with_newlines(orig_dir, tgt_dir, file_name):
+def copy_with_newlines(orig_dir, tgt_dir, file_name, newline='\r\n'):
     with open(join(orig_dir, file_name), 'rb') as orig_file:
-        with open(join(tgt_dir, file_name), 'wb') as tgt_file:
+        with open(join(tgt_dir, file_name), 'wb', newline=newline) as tgt_file:
             copyfileobj(orig_file, tgt_file)
 
 
 def write_commit_msg_hook(git_hook_directory):
     #
-    copy_with_newlines(this_dir, git_hook_directory, 'commit-msg')
+    copy_with_newlines(this_dir, git_hook_directory, 'commit-msg', newline='\n')
     copy_with_newlines(this_dir, git_hook_directory, 'commit_msg.py')
     #
     return
