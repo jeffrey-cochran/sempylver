@@ -30,10 +30,6 @@ def track_project(project_directory=None):
     #
     write_commit_msg_hook(git_hook_directory)
     #
-    # Remove windows carriage returns
-    commit_msg_file_name = join(git_hook_directory, 'commit-msg')
-    subprocess.call(["sed -i 's/\r$//' %s" % commit_msg_file_name])
-    #
     return
 
 
