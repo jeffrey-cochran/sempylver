@@ -1,7 +1,9 @@
 import yaml
 from shutil import copyfileobj
-from os.path import join, basename
-from sempylver.constants import global_config, this_dir
+from os.path import join, basename, isfile
+from sempylver.constants import global_config, this_dir,\
+    setup_file_replacement_string, version_regex, version_pattern
+from re import sub
 
 
 class config_parser(object):
@@ -55,7 +57,20 @@ def write_commit_msg_hook(git_hook_directory):
 
 def write_setup(project_directory):
     #
+    abs_setup_file_name = join(project_directory, 'setup.py')
+    setup_file_exists = isfile(abs_setup_file_name)
+    if not setup_file_exists:
+        create_new_setup_file(project_directory)
+    else:
+        modify_existing_setup_file(abs_setup_file_name)
+    #
+    return
+
+
+def create_new_setup_file(project_directory):
+    #
     project_name = basename(project_directory)
+    abs_setup_file_name = join(project_directory, 'setup.py')
     #
     with open(join(this_dir, 'setup'), 'r') as setup_file:
         setup_template = setup_file.read()
@@ -69,7 +84,25 @@ def write_setup(project_directory):
             'REPLACE_EMAIL', config_opts['email']
         )
     #
-    with open(join(project_directory, 'setup.py'), 'w') as setup_py_file:
+    with open(abs_setup_file_name, 'w') as setup_py_file:
         setup_py_file.write(setup_template)
+    #
+    return
+
+
+def modify_existing_setup_file(setup_file_name):
+    #
+    with open(setup_file_name, 'r') as fr:
+        base_setup_file_string = fr.read()
+    #
+    setup_file_string = base_setup_file_string.replace(r'setup(', setup_file_replacement_string)
+    has_version_specified = version_regex.search(setup_file_string)
+    if has_version_specified:
+        final_setup_file_string = sub(version_pattern, 'version=version,', setup_file_string)
+    else:
+        final_setup_file_string = setup_file_string.replace(r'setup(', 'setup(\nversion=version,')
+    #
+    with open(setup_file_name, 'w') as fw:
+        fw.write(final_setup_file_string)
     #
     return
