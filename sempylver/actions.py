@@ -8,7 +8,7 @@ def set_config(**kwargs):
     for key, value in kwargs.items():
         if value is not None and key != 'ssh_key':
             z.set(key, value)
-        elif key == 'ssh_key':
+        elif value is not None and key == 'ssh_key':
             environ['SSH_KEY'] = value
     z.write()
 
