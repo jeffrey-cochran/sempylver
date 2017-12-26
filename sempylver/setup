@@ -7,10 +7,10 @@ with open('__version__', 'rb') as f:
 
 
 setup(
-    name=%name%,
+    name='REPLACE_NAME',
     version=version,
-    description='%name%',
-    author='%author%',
-    author_email='%email%',
+    description='REPLACE_NAME',
+    author='REPLACE_AUTHOR',
+    author_email='REPLACE_EMAIL',
     packages=find_packages(),
 )

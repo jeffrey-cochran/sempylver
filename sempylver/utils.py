@@ -61,9 +61,9 @@ def write_setup(project_directory):
         setup_template = setup_file.read()
         cp = config_parser()
         config_opts = cp.config_opts
-        setup_template.replace('%name%', project_name)
-        setup_template.replace('%author%', config_opts['author'])
-        setup_template.replace('%email%', config_opts['email'])
+        setup_template.replace('REPLACE_NAME', project_name)
+        setup_template.replace('REPLACE_AUTHOR', config_opts['author'])
+        setup_template.replace('REPLACE_EMAIL', config_opts['email'])
     #
     with open(join(project_directory, 'setup.py'), 'w') as setup_py_file:
         setup_py_file.write(setup_template)
