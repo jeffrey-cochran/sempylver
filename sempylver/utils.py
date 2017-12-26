@@ -47,10 +47,12 @@ def copy_with_newlines(orig_dir, tgt_dir, file_name, newline='\r\n'):
             copyfileobj(orig_file, tgt_file)
 
 
-def write_commit_msg_hook(git_hook_directory):
+def write_hooks(git_hook_directory):
     #
     copy_with_newlines(this_dir, git_hook_directory, 'commit-msg', newline='\n')
     copy_with_newlines(this_dir, git_hook_directory, 'commit_msg.py')
+    copy_with_newlines(this_dir, git_hook_directory, 'post-commit', newline='\n')
+    copy_with_newlines(this_dir, git_hook_directory, 'post_commit.py')
     #
     return
 
