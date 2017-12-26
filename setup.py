@@ -7,8 +7,6 @@ with open('__version__', 'r') as f:
 
 
 setup(
-
-
     name='sempylver',
     version=version,
     description='A simple tool for tracking the semantic version of projects',
