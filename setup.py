@@ -1,7 +1,8 @@
 from distutils.core import setup
 from setuptools import find_packages
 
-
+#
+# DO NOT DELETE THIS COMMENT OR CODE
 with open('__version__', 'r') as f:
     version = f.read().strip()
 
