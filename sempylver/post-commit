@@ -1,6 +1,6 @@
 #!/bin/sh
-
-shouldTag=$(git log -1 --pretty=%B | cat | python .git/hooks/post_commit.py)
+prevMsg=$(git log -1 --pretty=%B | cat)
+shouldTag=$(python .git/hooks/post_commit.py $prevMsg)
 
 if [ shouldTag!="NO" ]; then
   git tag -a $shouldTag -m "Version $shouldTag Release"
