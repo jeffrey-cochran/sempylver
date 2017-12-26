@@ -1,5 +1,6 @@
 import argparse
 import re
+from sys import stdout
 
 if __name__ == "__main__":
     #
@@ -16,7 +17,9 @@ if __name__ == "__main__":
     flag_found = flag_regex.search(msg)
     if flag_found:
         with open("__version__", "r") as ff:
-            version = ff.read().strip()
-        return version
+            post_commit_msg = ff.read().strip()
     else:
-        return "NO"
+        post_commit_msg = "NO"
+    #
+    # Write output 
+    stdout.write(post_commit_msg)
