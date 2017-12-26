@@ -10,8 +10,7 @@ def set_config(**kwargs):
             z.set(key, value)
         elif value is not None and key == 'ssh_key':
             environ['SSH_KEY'] = value
-            with open("FRIENDSHIP", 'w') as f:
-                f.write(value)
+            z.set(key, value)
     z.write()
 
 
