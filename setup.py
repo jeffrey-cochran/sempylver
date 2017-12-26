@@ -2,7 +2,7 @@ from distutils.core import setup
 from setuptools import find_packages
 
 
-with open('__version__', 'rb') as f:
+with open('__version__', 'r') as f:
     version = f.read().strip()
 
 
