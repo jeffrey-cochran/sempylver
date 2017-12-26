@@ -100,7 +100,7 @@ def modify_existing_setup_file(setup_file_name):
     if has_version_specified:
         final_setup_file_string = sub(version_pattern, 'version=version,', setup_file_string)
     else:
-        final_setup_file_string = setup_file_string.replace(r'setup(', 'setup(\nversion=version,')
+        final_setup_file_string = setup_file_string.replace(r'setup(', 'setup(version=version,')
     #
     with open(setup_file_name, 'w') as fw:
         fw.write(final_setup_file_string)

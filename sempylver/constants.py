@@ -11,5 +11,5 @@ setup_file_replacement_string = """with open('__version__', 'rb') as f:
 setup(
 """
 
-version_pattern = 'version\s*=\s*\w+,'
+version_pattern = 'version\s*=\s*.+,'
 version_regex = compile(version_pattern)
