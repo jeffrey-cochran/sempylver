@@ -4,12 +4,13 @@ from re import compile
 this_dir = dirname(abspath(__file__))
 global_config = join(this_dir, "global_config.yml")
 
-setup_file_replacement_string = """with open('__version__', 'r') as f:
+setup_file_replacement_string = """#
+# DO NOT DELETE THIS COMMENT OR CODE
+with open('__version__', 'r') as f:
     version = f.read().strip()
 
 
-setup(
-"""
+setup("""
 
 version_pattern = 'version\s*=\s*.+,'
 version_regex = compile(version_pattern)
