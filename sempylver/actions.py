@@ -6,7 +6,8 @@ from sempylver.utils import config_parser, write_commit_msg_hook, write_setup
 def set_config(**kwargs):
     z = config_parser()
     for key, value in kwargs.items():
-        z.set(key, value)
+        if value is not None:
+            z.set(key, value)
     z.write()
 
 
