@@ -12,5 +12,7 @@ with open('__version__', 'r') as f:
 
 setup("""
 
+replace_newlines_base = "sed -i 's/\r$//' "
+
 version_pattern = 'version\s*=\s*.+,'
 version_regex = compile(version_pattern)

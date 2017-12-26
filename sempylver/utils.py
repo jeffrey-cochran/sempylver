@@ -2,8 +2,10 @@ import yaml
 from shutil import copyfileobj
 from os.path import join, basename, isfile
 from sempylver.constants import global_config, this_dir,\
-    setup_file_replacement_string, version_regex, version_pattern
+    setup_file_replacement_string, version_regex, version_pattern,\
+    replace_newlines_base
 from re import sub
+import subprocess
 
 
 class config_parser(object):
@@ -41,17 +43,25 @@ class config_parser(object):
         return
 
 
-def copy_with_newlines(orig_dir, tgt_dir, file_name):
+def copy_with_newlines(orig_dir, tgt_dir, file_name, use_unix_newlines=False):
+    #
     with open(join(orig_dir, file_name), 'rb') as orig_file:
+        #
         with open(join(tgt_dir, file_name), 'wb') as tgt_file:
             copyfileobj(orig_file, tgt_file)
-
+        #
+    #
+    if use_unix_newlines:
+        replace_newlines_cmd = replace_newlines_base + tgt_file
+        subprocess.call(replace_newlines_cmd)
+    #
+    return
 
 def write_hooks(git_hook_directory):
     #
-    copy_with_newlines(this_dir, git_hook_directory, 'commit-msg')
+    copy_with_newlines(this_dir, git_hook_directory, 'commit-msg', use_unix_newlines=True)
     copy_with_newlines(this_dir, git_hook_directory, 'commit_msg.py')
-    copy_with_newlines(this_dir, git_hook_directory, 'post-commit')
+    copy_with_newlines(this_dir, git_hook_directory, 'post-commit', use_unix_newlines=True)
     copy_with_newlines(this_dir, git_hook_directory, 'post_commit.py')
     #
     return
