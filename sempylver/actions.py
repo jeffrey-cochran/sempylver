@@ -1,5 +1,5 @@
 from os.path import isdir, join
-from os import environ
+from os import system
 from sempylver.utils import config_parser, write_hooks, write_setup
 
 
@@ -9,7 +9,8 @@ def set_config(**kwargs):
         if value is not None and key != 'ssh_key':
             z.set(key, value)
         elif value is not None and key == 'ssh_key':
-            environ['SSH_KEY'] = value
+            command = 'setx SSH_KEY %s' % value
+            system(command)
             z.set(key, value)
     z.write()
 
