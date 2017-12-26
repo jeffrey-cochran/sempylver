@@ -4,4 +4,5 @@ shouldTag=$(git log -1 --pretty=%B | cat | python post_commit.py)
 
 if [ shouldTag!="NO" ]; then
   git tag -a $shouldTag -m "Version $shouldTag Release"
+  git push --tags
 fi
