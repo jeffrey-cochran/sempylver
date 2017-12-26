@@ -47,9 +47,9 @@ def copy_with_newlines(orig_dir, tgt_dir, file_name, use_unix_newlines=False):
     #
     orig_file_name = join(orig_dir, file_name)
     tgt_file_name = join(tgt_dir, file_name)
-    with open(orig_file_name, 'rb') as orig_file:
+    with open(orig_file_name, 'r') as orig_file:
         #
-        with open(tgt_file_name, 'wb') as tgt_file:
+        with open(tgt_file_name, 'w') as tgt_file:
             copyfileobj(orig_file, tgt_file)
         #
     #
