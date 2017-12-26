@@ -45,14 +45,16 @@ class config_parser(object):
 
 def copy_with_newlines(orig_dir, tgt_dir, file_name, use_unix_newlines=False):
     #
-    with open(join(orig_dir, file_name), 'rb') as orig_file:
+    orig_file_name = join(orig_dir, file_name)
+    tgt_file_name = join(tgt_dir, file_name)
+    with open(orig_file_name, 'rb') as orig_file:
         #
-        with open(join(tgt_dir, file_name), 'wb') as tgt_file:
+        with open(tgt_file_name, 'wb') as tgt_file:
             copyfileobj(orig_file, tgt_file)
         #
     #
     if use_unix_newlines:
-        replace_newlines_cmd = replace_newlines_base + tgt_file
+        replace_newlines_cmd = replace_newlines_base + tgt_file_name
         subprocess.call(replace_newlines_cmd)
     #
     return
