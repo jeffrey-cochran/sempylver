@@ -17,6 +17,7 @@ def main():
     parser_config.add_argument('--working-directory', metavar='d', type=str, help='specify the root git directory that contains your repos')
     parser_config.add_argument('--author', metavar='a', type=str, help='specify the author to use in setup')
     parser_config.add_argument('--email', metavar='e', type=str, help='specify the email to use in setup')
+    parser_config.add_argument('--ssh-key', metavar='s', type=str, help='specify the ssh key file to use when pushing to git')
     #
     # Track parser
     parser_config = subparsers.add_parser('track', help='Track a Python git repository')
