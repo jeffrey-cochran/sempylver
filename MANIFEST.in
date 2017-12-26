@@ -1,2 +1,3 @@
 include sempylver/global_config.yml
 include sempylver/commit-msg
+include sempylver/setup
