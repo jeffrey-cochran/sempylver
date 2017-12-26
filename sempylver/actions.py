@@ -25,15 +25,18 @@ def track_project(project_directory=None, s=False):
         is_relative_path = isdir(join(working_directory, git_hook_directory))
     #
     if is_relative_path:
+        abs_project_directory = join(working_directory, project_directory)
         git_hook_directory = join(working_directory, git_hook_directory)
     elif not isdir(git_hook_directory):
         raise Exception('The target directory, %s, does not appear to be a git repository.' % project_directory)
+    else:
+        abs_project_directory = project_directory
     #
     write_commit_msg_hook(git_hook_directory)
     #
     # Create a setup file
     if s:
-        write_setup(project_directory)
+        write_setup(abs_project_directory)
     #
     return
 
