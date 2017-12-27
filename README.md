@@ -10,10 +10,10 @@ Simple semantic versioning in Python. A CLI tool.
 6. *sempylver config --email YOUREMAIL*
 7. *sempylver config --working-directory DIR-CONTAINING-GIT-REPOS*
 8. *sempylver track NAME-OF-GIT-REPO -s*
-  * This creates a version file named *__version__* with format X.X.X
-  * If you want do not want to modify your setup file to look retrieve the version number from the version file, omit *-s* from the above command
+   This creates a version file named *__version__* with format X.X.X  
+   **If you do not want to modify your setup file** to retrieve the version number from the version file, omit *-s* from the above command  
 9. Whenever committing a tracked repo...
-  * Sempylver will automatically increment (+=1) the Y in the version number X.X.Y
-  * Including '-m' IN the commit message will increment (+=) the Y in the version number X.Y.Z and set Z==0
-  * Including '-M' IN the commit message will increment (+=) the Y in the version number Y.Z.Z and set Z==0
-  * Including '-t' IN the commit message will tag the commit with the version number
+   Sempylver will automatically increment (+=1) the Y in the version number X.X.Y  
+   Including '-m' **in the commit message** will increment (+=) the Y in the version number X.Y.Z and set Z==0  
+   Including '-M' **in the commit message** will increment (+=) the Y in the version number Y.Z.Z and set Z==0  
+   Including '-t' **in the commit message** will tag the commit with the version number  
