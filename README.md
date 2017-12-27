@@ -17,4 +17,3 @@ Simple semantic versioning in Python. A CLI tool.
    Including '-m' **in the commit message** will increment (+=) the Y in the version number X.Y.Z and set Z==0  
    Including '-M' **in the commit message** will increment (+=) the Y in the version number Y.Z.Z and set Z==0  
    Including '-t' **in the commit message** will tag the commit with the version number  
-
