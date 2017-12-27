@@ -113,7 +113,9 @@ def modify_existing_setup_file(setup_file_name):
     # Check to see if the version file has already been imported
     # from a previous track of this repository
     has_file_import = has_import_regex.search(base_setup_file_string)
-    if not has_file_import:
+    if has_file_import:
+        setup_file_string = base_setup_file_string
+    else:
         setup_file_string = base_setup_file_string.replace(r'setup(', setup_file_replacement_string)
     #
     # Check to see if the version is set to the version file import
