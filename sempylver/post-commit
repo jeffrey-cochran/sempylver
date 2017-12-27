@@ -6,5 +6,5 @@ if [[ $shouldTag == *"NO"* ]]; then
   :
 else
   git tag -a $shouldTag -m "Version $shouldTag Release"
-  git push --tags'
+  git push --tags
 fi
