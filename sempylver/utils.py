@@ -3,7 +3,7 @@ from shutil import copyfileobj
 from os.path import join, basename, isfile
 from sempylver.constants import global_config, this_dir,\
     setup_file_replacement_string, version_regex, version_pattern,\
-    replace_newlines_base
+    replace_newlines_base, has_import_regex
 from re import sub
 import subprocess
 
@@ -106,16 +106,24 @@ def create_new_setup_file(project_directory):
 
 def modify_existing_setup_file(setup_file_name):
     #
+    # Read base setup file
     with open(setup_file_name, 'r') as fr:
         base_setup_file_string = fr.read()
     #
-    setup_file_string = base_setup_file_string.replace(r'setup(', setup_file_replacement_string)
+    # Check to see if the version file has already been imported
+    # from a previous track of this repository
+    has_file_import = has_import_regex.search(base_setup_file_string)
+    if not has_file_import:
+        setup_file_string = base_setup_file_string.replace(r'setup(', setup_file_replacement_string)
+    #
+    # Check to see if the version is set to the version file import
     has_version_specified = version_regex.search(setup_file_string)
     if has_version_specified:
         final_setup_file_string = sub(version_pattern, 'version=version,', setup_file_string)
     else:
         final_setup_file_string = setup_file_string.replace(r'setup(', 'setup(version=version,')
     #
+    # Write setup.py file
     with open(setup_file_name, 'w') as fw:
         fw.write(final_setup_file_string)
     #

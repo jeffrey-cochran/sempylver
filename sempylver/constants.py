@@ -16,3 +16,4 @@ replace_newlines_base = "sed -i 's/\r$//' "
 
 version_pattern = 'version\s*=\s*.+,'
 version_regex = compile(version_pattern)
+has_import_regex = compile("DO NOT DELETE THIS COMMENT OR CODE")

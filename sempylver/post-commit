@@ -6,5 +6,5 @@ if [[ $shouldTag == *"NO"* ]]; then
   :
 else
   git tag -a $shouldTag -m "Version $shouldTag Release"
-  ssh-agent bash -c 'ssh-add $SSH_KEY; git push --tags'
+  git push --tags'
 fi
