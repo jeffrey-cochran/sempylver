@@ -24,4 +24,8 @@ setup(
     install_requires=[
         'pyyaml',
     ],
+    url='https://github.com/jeffrey-cochran/sempylver',
+    download_url='https://github.com/jeffrey-cochran/sempylver/archive/%s.tar.gz' % version,
+    keywords=['versioning', 'semantic', 'cli', 'version', 'control'],
+    classifiers=[]
 )
