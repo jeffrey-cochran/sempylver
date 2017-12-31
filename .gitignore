@@ -2,3 +2,5 @@
 /.pydevproject
 *.pyc
 */sandbox.py
+dist
+sempylver.egg-info
