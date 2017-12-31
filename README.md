@@ -5,7 +5,7 @@ Simple semantic versioning in Python. A CLI tool.
 1. [If using Windows] Install Cygwin and **make sure to include the git package when installing**
 2. [If using Windows] Add Cygwin's bin directory to your path
 3. [If using Windows] Copy your .ssh folder to cygwin/home/USERNAME/.ssh
-4. *pip install git+ssh://git@github.com/jeffrey-cochran/sempylver.git*
+4. *pip install sempylver*
 5. *sempylver config --author YOURNAME*
 6. *sempylver config --email YOUREMAIL*
 7. *sempylver config --working-directory DIR-CONTAINING-GIT-REPOS*
