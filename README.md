@@ -16,6 +16,7 @@ Simple semantic versioning in Python. A CLI tool.
    Sempylver will automatically increment (+=1) the Y in the version number X.X.Y  
    Including '-m' **in the commit message** will increment (+=) the Y in the version number X.Y.Z and set Z==0  
    Including '-M' **in the commit message** will increment (+=) the Y in the version number Y.Z.Z and set Z==0  
+   Including '-s' **in the commit message** will skip version incrementation, and keep the current version
    Including '-t' **in the commit message** will tag the commit with the version number  
 
    
