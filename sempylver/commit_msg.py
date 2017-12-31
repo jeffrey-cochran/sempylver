@@ -38,7 +38,7 @@ if __name__ == "__main__":
     #
     # Parse the msg for skip command
     skip_flag_regex = re.compile(".*(-[sS]).*")
-    skip_flag_found = flag_regex.search(msg)
+    skip_flag_found = skip_flag_regex.search(msg)
     if skip_flag_found:
         pass
         #
