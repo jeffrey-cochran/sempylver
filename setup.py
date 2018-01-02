@@ -1,6 +1,18 @@
 from distutils.core import setup
 from setuptools import find_packages
 
+KEYWORDS = ['versioning', 'version control', 'semantic versioning']
+CLASSIFIERS = [
+    'Development Status :: 3 - Alpha',
+    'Environment :: Console',
+    'Intended Audience :: Developers',
+    'License :: OSI Approved :: MIT License',
+    'Operating System :: Microsoft :: Windows',
+    'Programming Language :: Python :: 2.7',
+    'Programming Language :: Python :: 3.6',
+    'Topic :: Software Development :: Version Control :: Git',
+]
+
 
 #
 # DO NOT DELETE THIS COMMENT OR CODE
@@ -26,6 +38,6 @@ setup(
     ],
     url='https://github.com/jeffrey-cochran/sempylver',
     download_url='https://github.com/jeffrey-cochran/sempylver/archive/%s.tar.gz' % version,
-    keywords=['versioning', 'semantic', 'cli', 'version', 'control'],
-    classifiers=[]
+    keywords=KEYWORDS,
+    classifiers=CLASSIFIERS
 )
