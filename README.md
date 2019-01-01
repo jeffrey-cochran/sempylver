@@ -1,5 +1,5 @@
 # sempylver
-Simple semantic versioning in Python. A CLI tool for tracking semantic versions automatically during the git commit process. 
+Simple semantic versioning in Python. A CLI tool for tracking semantic versions automatically during the git commit process.
 
 ## How to use this package:
 1. [If using Windows] Install Cygwin and **make sure to include the git package when installing**
