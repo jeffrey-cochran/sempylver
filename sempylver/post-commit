@@ -2,6 +2,8 @@
 prevMsg=$(git log -1 --pretty=%B | cat)
 shouldTag=$(python .git/hooks/post_commit.py "$prevMsg")
 
+git commit --amend --no-edit
+
 if [[ $shouldTag == *"NO"* ]]; then
   :
 else
